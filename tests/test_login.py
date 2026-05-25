@@ -14,6 +14,7 @@ class TestLogin:
         driver.find_element(By.XPATH, FIELD_PASSWORD).send_keys("123456")
         driver.find_element(By.XPATH, LOGIN_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()
 
     def test_login_via_personal_account(self):
@@ -24,6 +25,7 @@ class TestLogin:
         driver.find_element(By.XPATH, FIELD_PASSWORD).send_keys("123456")
         driver.find_element(By.XPATH, LOGIN_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()
 
     def test_login_via_register_form(self):
@@ -31,11 +33,12 @@ class TestLogin:
         driver.get('https://stellarburgers.education-services.ru/')
         driver.find_element(By.XPATH, LOGIN_BUTTON_MAIN).click()
         driver.find_element(By.XPATH, REGISTER_LINK).click()
-        driver.find_element(By.XPATH, LOGIN_LINK_FROM_REGISTER).click()
+        driver.find_element(By.XPATH, LOGIN_LINK).click()
         driver.find_element(By.XPATH, FIELD_EMAIL).send_keys("anton_test_003@yandex.ru")
         driver.find_element(By.XPATH, FIELD_PASSWORD).send_keys("123456")
         driver.find_element(By.XPATH, LOGIN_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()
 
     def test_login_via_forgot_password_form(self):
@@ -43,9 +46,10 @@ class TestLogin:
         driver.get('https://stellarburgers.education-services.ru/')
         driver.find_element(By.XPATH, LOGIN_BUTTON_MAIN).click()
         driver.find_element(By.XPATH, FORGOT_PASSWORD_LINK).click()
-        driver.find_element(By.XPATH, LOGIN_LINK_FROM_REGISTER).click()
+        driver.find_element(By.XPATH, LOGIN_LINK).click()
         driver.find_element(By.XPATH, FIELD_EMAIL).send_keys("anton_test_003@yandex.ru")
         driver.find_element(By.XPATH, FIELD_PASSWORD).send_keys("123456")
         driver.find_element(By.XPATH, LOGIN_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()

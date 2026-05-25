@@ -17,4 +17,5 @@ class TestQuit:
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/account/profile"))
         driver.find_element(By.XPATH, LOGOUT_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/login"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/login"
         driver.quit()

@@ -16,6 +16,7 @@ class TestTransitionConstructor:
         driver.find_element(By.XPATH, PERSONAL_ACCOUNT_BUTTON).click()
         driver.find_element(By.XPATH, CONSTRUCTOR_BUTTON).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()
 
     def test_transition_via_logo(self):
@@ -28,4 +29,5 @@ class TestTransitionConstructor:
         driver.find_element(By.XPATH, PERSONAL_ACCOUNT_BUTTON).click()
         driver.find_element(By.XPATH, LOGO).click()
         WebDriverWait(driver, 3).until(EC.url_to_be("https://stellarburgers.education-services.ru/"))
+        assert driver.current_url == "https://stellarburgers.education-services.ru/"
         driver.quit()
