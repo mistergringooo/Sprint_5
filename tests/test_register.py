@@ -26,7 +26,7 @@ class TestRegister:
         driver.find_element(By.XPATH, LOGIN_BUTTON_MAIN).click()
         driver.find_element(By.XPATH, REGISTER_LINK).click()
         driver.find_element(By.XPATH, REGISTER_NAME).send_keys(NAME)
-        driver.find_element(By.XPATH, FIELD_EMAIL).send_keys(INCORRECT_EMAIL)
+        driver.find_element(By.XPATH, FIELD_EMAIL).send_keys(generate_email())
         driver.find_element(By.XPATH, FIELD_PASSWORD).send_keys(INCORRECT_PASSWORD)
         driver.find_element(By.XPATH, REGISTER_BUTTON).click()
         assert driver.find_element(By.XPATH, INCORRECT_PASSWORD_ERROR).text == "Некорректный пароль"
