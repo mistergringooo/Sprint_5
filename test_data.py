@@ -1,0 +1,5 @@
+NAME = "Антон"
+EMAIL = "anton_test_003@yandex.ru"
+PASSWORD = "123456"
+INCORRECT_PASSWORD = "12345"
+INCORRECT_EMAIL = "anton_test_002@yandex.ru"

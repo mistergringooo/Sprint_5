@@ -1,6 +1,7 @@
 import pytest
 import random
 import string
+from selenium import webdriver
 
 def generate_email():
     random_digits = ''.join(random.choices(string.digits, k=3))
@@ -8,3 +9,9 @@ def generate_email():
 
 def generate_password():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
+
+@pytest.fixture
+def driver():
+    driver = webdriver.Chrome()
+    yield driver
+    driver.quit()
